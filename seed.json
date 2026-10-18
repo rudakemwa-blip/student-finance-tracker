@@ -1,0 +1,12 @@
+﻿[
+  {"id":"seed01","description":"Groceries","amount":25000,"category":"Food","date":"2026-10-01","createdAt":"2026-10-01T08:00:00.000Z","updatedAt":"2026-10-01T08:00:00.000Z"},
+  {"id":"seed02","description":"Bus fare","amount":3000,"category":"Transport","date":"2026-10-02","createdAt":"2026-10-02T08:00:00.000Z","updatedAt":"2026-10-02T08:00:00.000Z"},
+  {"id":"seed03","description":"Data bundle","amount":5000,"category":"Utilities","date":"2026-10-03","createdAt":"2026-10-03T08:00:00.000Z","updatedAt":"2026-10-03T08:00:00.000Z"},
+  {"id":"seed04","description":"Lunch","amount":4500,"category":"Food","date":"2026-10-04","createdAt":"2026-10-04T08:00:00.000Z","updatedAt":"2026-10-04T08:00:00.000Z"},
+  {"id":"seed05","description":"Notebook","amount":2500,"category":"Education","date":"2026-10-05","createdAt":"2026-10-05T08:00:00.000Z","updatedAt":"2026-10-05T08:00:00.000Z"},
+  {"id":"seed06","description":"Laundry","amount":4000,"category":"Personal","date":"2026-10-06","createdAt":"2026-10-06T08:00:00.000Z","updatedAt":"2026-10-06T08:00:00.000Z"},
+  {"id":"seed07","description":"Taxi","amount":7000,"category":"Transport","date":"2026-10-07","createdAt":"2026-10-07T08:00:00.000Z","updatedAt":"2026-10-07T08:00:00.000Z"},
+  {"id":"seed08","description":"Coffee","amount":2000,"category":"Food","date":"2026-10-08","createdAt":"2026-10-08T08:00:00.000Z","updatedAt":"2026-10-08T08:00:00.000Z"},
+  {"id":"seed09","description":"Printing notes","amount":1500,"category":"Education","date":"2026-10-09","createdAt":"2026-10-09T08:00:00.000Z","updatedAt":"2026-10-09T08:00:00.000Z"},
+  {"id":"seed10","description":"Phone credit","amount":3000,"category":"Utilities","date":"2026-10-10","createdAt":"2026-10-10T08:00:00.000Z","updatedAt":"2026-10-10T08:00:00.000Z"}
+]

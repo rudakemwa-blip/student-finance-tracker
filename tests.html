@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Finance Tracker Tests</title>
+  <style>
+    body { font: 16px system-ui, sans-serif; max-width: 850px; margin: 2rem auto; padding: 0 1rem; }
+    .pass { color: #147d38; } .fail { color: #b42318; }
+  </style>
+</head>
+<body>
+  <h1>Student Finance Tracker — Tests</h1>
+  <p>Open this page through Live Server. Results appear below.</p>
+  <p id="summary">Running tests…</p>
+  <ul id="results"></ul>
+  <script type="module">
+    import { validateExpense } from "./scripts/validators.js";
+    import { compileRegex, matchesExpense } from "./scripts/search.js";
+
+    const results = document.getElementById("results");
+    let passed = 0, failed = 0;
+
+    function test(name, callback) {
+      const li = document.createElement("li");
+      try {
+        if (callback() === false) throw new Error("Assertion failed");
+        li.textContent = "PASS — " + name;
+        li.className = "pass";
+        passed++;
+      } catch (error) {
+        li.textContent = "FAIL — " + name + ": " + error.message;
+        li.className = "fail";
+        failed++;
+      }
+      results.append(li);
+    }
+
+    const expense = {
+      id: "test1", description: "Bus fare", amount: 3000,
+      category: "Transport", date: "2026-10-02"
+    };
+
+    test("valid expense has no errors", () =>
+      validateExpense("Bus fare", "3000", "Transport", "2026-10-02").length === 0);
+
+    test("empty description is rejected", () =>
+      validateExpense("", "3000", "Transport", "2026-10-02").length > 0);
+
+    test("zero amount is rejected", () =>
+      validateExpense("Bus fare", "0", "Transport", "2026-10-02").length > 0);
+
+    test("invalid date is rejected", () =>
+      validateExpense("Bus fare", "3000", "Transport", "not-a-date").length > 0);
+
+    test("valid regex compiles", () => compileRegex("Bus") instanceof RegExp);
+
+    test("invalid regex is handled", () => compileRegex("[") === false);
+
+    test("regex matches description", () =>
+      matchesExpense(expense, compileRegex("bus")) === true);
+
+    test("non-matching regex returns false", () =>
+      matchesExpense(expense, compileRegex("rent")) === false);
+
+    test("empty search matches all records", () =>
+      matchesExpense(expense, compileRegex("")) === true);
+
+    document.getElementById("summary").textContent =
+      `${passed} passed, ${failed} failed out of ${passed + failed} tests.`;
+  </script>
+</body>
+</html>
